@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>推荐系统 · STSECL / POIRec</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+</head>
+<body>
+    <header>
+        <h1>推荐系统演示平台</h1>
+    </header>
+
+    <main>
+        <!-- 1. 任务选择 -->
+        <section class="card">
+            <h2>1. 任务选择</h2>
+            <div class="task-cards" id="taskCards"></div>
+        </section>
+
+        <!-- 2. 数据集 + 参数 -->
+        <section class="card">
+            <h2>2. 数据集与参数</h2>
+            <div class="row">
+                <label class="field">
+                    <span>数据集</span>
+                    <select id="datasetSelect"></select>
+                </label>
+            </div>
+            <div class="params-grid" id="paramsGrid"></div>
+            <div class="actions">
+                <button id="runBtn" class="btn-primary">推荐</button>
+            </div>
+        </section>
+
+        <!-- 3. 结果 -->
+        <section class="card" id="resultCard" hidden>
+            <h2>3. 结果</h2>
+            <div class="rec-head">
+                <h3>推荐结果</h3>
+                <div class="rec-filter">
+                    <span>用户：</span>
+                    <input type="number" id="userInput" min="0" placeholder="用户ID">
+                    <span>推荐前</span>
+                    <input type="number" id="topInput" min="1" value="10" placeholder="N">
+                    <span>个</span>
+                    <button id="queryBtn" class="btn-secondary">查询</button>
+                    <span id="recInfo" class="rec-info"></span>
+                </div>
+            </div>
+            <div class="map-wrap" id="mapWrap" hidden>
+                <div id="map"></div>
+                <div class="map-legend" id="mapLegend" hidden></div>
+            </div>
+            <div class="table-wrap">
+                <table id="recTable">
+                    <thead></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="/static/app.js"></script>
+</body>
+</html>

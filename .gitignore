@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Flask 任务运行日志
+results/
+
+# 预处理 / 训练自动生成的产物（可由 preprocess.py / main.py 重新生成）
+*.db
+recommendations.tsv
+stsecl_data.pt
+poi_data.pt
+build_params.json
+results.json
+
+# 训练好的模型权重（每次运行都会重新生成）
+save_user_embedding/
+
+# 本地环境 / 编辑器
+.venv/
+venv/
+.idea/
+.vscode/
+.DS_Store
