@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>推荐系统演示 · STSECL / POIRec</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+</head>
+<body>
+    <header>
+        <h1>推荐系统演示平台</h1>
+        <p class="subtitle">基于预计算结果 · STSECL 朋友推荐 / POIRec 兴趣点推荐</p>
+    </header>
+
+    <main>
+        <section class="card">
+            <div class="task-tabs" id="taskTabs"></div>
+        </section>
+
+        <section class="card">
+            <div class="row">
+                <label class="field">
+                    <span>数据集</span>
+                    <select id="datasetSelect"></select>
+                </label>
+                <label class="field">
+                    <span>用户</span>
+                    <select id="userSelect"></select>
+                </label>
+            </div>
+        </section>
+
+        <section class="card" id="metricsCard" hidden>
+            <h2>评价指标</h2>
+            <div class="metrics" id="metricsBox"></div>
+        </section>
+
+        <section class="card" id="resultCard" hidden>
+            <h2>推荐结果</h2>
+            <div class="map-wrap" id="mapWrap" hidden>
+                <div id="map"></div>
+                <div class="map-legend">
+                    <span class="lg-user"></span> 目标用户
+                    <span class="lg-poi"></span> 推荐地点
+                </div>
+            </div>
+            <div class="table-wrap">
+                <table id="recTable">
+                    <thead></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <a href="https://github.com/RYX1357/RecommendationWeb">源代码仓库</a> ·
+        本页面展示预计算结果，完整运行见仓库部署说明
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="demo.js"></script>
+</body>
+</html>
