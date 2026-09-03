@@ -55,7 +55,6 @@ function selectTask(key) {
 function selectDataset() {
     state.dataset = $('#datasetSelect').value;
     const entry = DATA.tasks[state.task].datasets[state.dataset];
-    renderMetrics(entry.metrics);
     renderUsers(entry.users);
     state.user = entry.users[0]?.user;
     if (entry.users.length) {
@@ -65,22 +64,6 @@ function selectDataset() {
     } else {
         $('#resultCard').hidden = true;
     }
-}
-
-function renderMetrics(metrics) {
-    const box = $('#metricsBox');
-    box.innerHTML = '';
-    if (!metrics || !Object.keys(metrics).length) {
-        $('#metricsCard').hidden = true;
-        return;
-    }
-    $('#metricsCard').hidden = false;
-    Object.entries(metrics).forEach(([k, v]) => {
-        const m = document.createElement('div');
-        m.className = 'metric';
-        m.innerHTML = `<div class="m-label">${escapeHtml(k)}</div><div class="m-value">${escapeHtml(v)}</div>`;
-        box.appendChild(m);
-    });
 }
 
 function renderUsers(users) {
